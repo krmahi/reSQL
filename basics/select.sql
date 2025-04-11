@@ -142,3 +142,11 @@ ORDER BY
     marks DESC
 LIMIT
     3;
+
+SELECT
+    city,
+    count(name)
+from
+    students
+GROUP BY
+    city;
