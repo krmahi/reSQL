@@ -1,3 +1,13 @@
 CREATE DATABASE college;
 
+CREATE DATABASE IF NOT EXIST college;
+
+DROP DATABASE college;
+
+DROP DATABASE IF EXISTS college;
+
 use college;
+
+SHOW DATABASES;
+
+SHOW TABLES;
