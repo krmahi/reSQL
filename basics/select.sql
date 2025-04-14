@@ -143,6 +143,7 @@ ORDER BY
 LIMIT
     3;
 
+-- group by
 SELECT
     city,
     count(name)
@@ -150,3 +151,35 @@ from
     students
 GROUP BY
     city;
+
+-- max marks in a city
+SELECT
+    city,
+    max(marks)
+from
+    students
+GROUP BY
+    city;
+
+-- we can make multiple col groups
+SELECT
+    city,
+    name,
+    count(rollno)
+from
+    students
+GROUP BY
+    city,
+    name;
+
+-- HAVING clause (where cannot be used on groups)
+-- no of student in each city where max marks cross 90
+select
+    city,
+    count(rollno)
+from
+    students
+GROUP BY
+    city
+HAVING
+    max(marks) > 90;
