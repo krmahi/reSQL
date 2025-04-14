@@ -47,3 +47,46 @@ INSERT INTO
     students (name, rollno)
 values
     ("suhani", 105);
+
+-- disable safe update mode
+set
+    SQL_SAFE_UPDATES = 0;
+
+-- update
+update students
+set
+    grade = "O"
+where
+    grade = "A";
+
+update students
+set
+    marks = 86
+where
+    rollno = 105;
+
+update students
+set
+    grade = "B"
+where
+    marks between 80 AND 90;
+
+-- increment marks by 1
+update students
+set
+    marks = marks + 1;
+
+update students
+set
+    marks = 12
+where
+    rollno = 105;
+
+delete from students
+where
+    marks < 33;
+
+select
+    *
+from
+    students;
