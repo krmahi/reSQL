@@ -7,6 +7,56 @@ CREATE TABLE
         age INT NOT NULL
     );
 
+CREATE table
+    if NOT EXISTS department (
+        id int NOT NULL,
+        name VARCHAR(50),
+        primary key (id)
+    );
+
+insert into
+    department
+values
+    (101, "english"),
+    (102, "IT");
+
+update department
+set
+    id = 103
+where
+    id = 102;
+
+update department
+set
+    id = 111
+where
+    id = 101;
+
+select
+    *
+from
+    department;
+
+CREATE table
+    if NOT EXISTS teachers (
+        id int NOT NULL,
+        name VARCHAR(50),
+        dept_id int NOT NULL,
+        primary key (id),
+        foreign key (dept_id) references department (id) on delete cascade ON UPDATE CASCADE
+    );
+
+INSERT into
+    teachers
+values
+    (101, "adam", 101),
+    (102, "Eve", 102);
+
+select
+    *
+from
+    teachers;
+
 INSERT INTO
     students
 VALUES
@@ -85,6 +135,31 @@ where
 delete from students
 where
     marks < 33;
+
+-- alter (change schema)
+-- ADD column
+ALTER TABLE students
+ADD column age int NOT NULL DEFAULT 19;
+
+-- modify column
+ALTER table students MODIFY age varchar(2);
+
+-- change column
+ALTER table students change age stu_age INT;
+
+-- drop column
+ALTER table students
+DROP column stu_age;
+
+-- rename to (table_name)
+ALTER table students
+rename to stu;
+
+ALTER table stu
+rename to students;
+
+-- TRUNCATE
+truncate table students;
 
 select
     *
