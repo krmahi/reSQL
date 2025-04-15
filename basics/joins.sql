@@ -110,3 +110,25 @@ SELECT
 from
     employee as A
     JOIN employee as B on A.id = B.manager_id;
+
+---- ! union ----
+SELECT
+    name
+from
+    employee
+UNION
+SELECT
+    full_name
+from
+    students;
+
+---- ! union All ----
+SELECT
+    name
+from
+    employee
+UNION ALL
+SELECT
+    name
+from
+    employee;
